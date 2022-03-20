@@ -13,3 +13,26 @@
 ### Запуск тестов
 
 - **make testing**
+
+### API
+```GET:/api/wallet/balance/get/```
+> Получить текущий баланс 
+
+**Обязательные параметры:**
+
+```yaml
+  wallet_id:  [integer]
+```
+
+```POST:/api/wallet/balance/change/```
+> Изменить текущий баланс
+
+**Обязательные параметры:**
+
+```yaml
+  wallet_id:  [integer],
+  transaction_type: [string],
+  currency_amount: [float]
+  currency_symbol: [string],
+  transaction_reason: [string],
+```
