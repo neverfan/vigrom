@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix' => 'wallet', /*'middleware' => ['auth:sanctum']*/], function () {
+    Route::get('/balance/get/', [
+        'as' => 'api.wallet.balance.get',
+        'uses' => 'WalletController@getBalance',
+    ]);
+    Route::post('/balance/change', [
+        'as' => 'api.wallet.balance.change',
+        'uses' => 'WalletController@changeBalance',
+    ]);
+});
